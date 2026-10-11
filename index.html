@@ -1,184 +1,204 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Hanslbauer Purtlhof | Frische Eier aus Freilandhaltung</title>
-
-<style>
-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 160px;
-    height: 100%;
-    background: #476b3a;
-    padding-top: 20px;
-}
-
-nav a {
-    display: block;
-    color: white;
-    padding: 15px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background: #36522c;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f6f4ed;
-    color: #333;
-    padding-left: 160px;
-}
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f6f4ed;
-    color: #333;
-}
-
-header {
-    background: #476b3a;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-header h1 {
-    font-size: 42px;
-    margin: 0;
-}
-
-header p {
-    font-size: 20px;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-.box {
-    background: white;
-    margin: 25px 0;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #476b3a;
-}
-
-.price {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.button {
-    display: inline-block;
-    background: #0070ba;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.image {
-    width: 100%;
-    border-radius: 15px;
-}
-
-footer {
-    background: #476b3a;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-</style>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c2b">
+  <meta name="description" content="Hanslbauer Purtlhof in Röhrmoos: Freilandeier direkt vom Hof. 10 Eier für 3 Euro, Barzahlung oder PayPal.">
+  <title>Hanslbauer | Freilandeier vom Purtlhof</title>
+  <style>
+    :root{--green:#183c2b;--green2:#315b40;--cream:#f7f4eb;--paper:#fffdf7;--gold:#c8a75b;--ink:#252a24;--muted:#6d746b;--line:#e3dfd2;--shadow:0 18px 55px #1a2b1d14}
+    *{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit} img{display:block;max-width:100%}
+    .layout{min-height:100vh}
+    .sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:var(--green);color:#fff;padding:28px 20px;display:flex;flex-direction:column;z-index:10}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:34px}
+    .brand img{width:65px;height:65px;object-fit:contain;border-radius:50%;background:#f7f4eb;padding:3px}
+    .brand strong{font-family:Georgia,serif;font-size:1.45rem;line-height:1.1;display:block}
+    .brand small{color:#d6dfd2;letter-spacing:.12em;text-transform:uppercase;font-size:.68rem}
+    .nav-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.17em;color:#bdcdbd;margin:0 12px 12px}
+    nav{display:grid;gap:7px}
+    nav a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;text-decoration:none;color:#e8eee5;transition:.2s}
+    nav a:hover,nav a.active{background:#ffffff18;color:#fff}
+    nav .num{font-size:.7rem;color:#d0b979;width:20px}
+    .side-bottom{margin-top:auto;border-top:1px solid #ffffff2b;padding:20px 10px 0;color:#d6dfd2;font-size:.84rem}
+    .side-bottom strong{display:block;color:#fff;font-size:1.05rem}
+    main{margin-left:255px}
+    section{padding:82px clamp(24px,6vw,86px)}
+    .eyebrow{color:var(--green2);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.08;font-weight:500}
+    h1{font-size:clamp(3rem,6vw,5.8rem);margin:18px 0 22px;letter-spacing:-.045em}
+    h2{font-size:clamp(2.2rem,4vw,3.6rem);margin:12px 0 20px;letter-spacing:-.035em}
+    h3{font-size:1.55rem;margin:0 0 10px}
+    p{margin:0 0 16px}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;padding-top:48px;padding-bottom:48px;background:radial-gradient(ellipse at 85% 10%,#e9e1c9 0,transparent 38%),var(--paper);position:relative;overflow:hidden}
+    .hero-copy{position:relative;z-index:1}
+    .hero h1 span{color:var(--green2);font-style:italic}
+    .hero-copy>p{max-width:490px;color:#5d655b;font-size:1.08rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:999px;text-decoration:none;font-weight:750;border:1px solid var(--green);transition:transform .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:var(--green);color:white}
+    .btn.secondary{color:var(--green)}
+    .hero-art{position:relative}
+    .hero-art:before{content:"";position:absolute;inset:7% -4% -5% 9%;border:1px solid #c8b982;border-radius:48% 48% 18px 18px;transform:rotate(3deg)}
+    .hero-art img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:48% 48% 16px 16px;position:relative;box-shadow:var(--shadow)}
+    .hero-stamp{position:absolute;bottom:24px;left:-30px;background:var(--green);color:#fff;border-radius:50%;width:118px;height:118px;display:grid;place-content:center;text-align:center;font-size:.78rem;line-height:1.35;transform:rotate(-8deg);border:5px solid var(--cream)}
+    .hero-stamp strong{font-family:Georgia,serif;font-size:1.4rem;font-weight:500}
+    .intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+    .intro-note{border-left:2px solid var(--gold);padding:4px 0 4px 24px;color:#596257;font-size:1.06rem}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+    .feature{background:var(--paper);padding:25px;border:1px solid var(--line);border-radius:16px}
+    .feature .icon{font-size:1.5rem;margin-bottom:16px}
+    .feature p{color:var(--muted);font-size:.93rem;margin:0}
+    .stall-section{background:#eae6d9}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:32px}
+    .section-head p{max-width:400px;color:var(--muted)}
+    .gallery{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:230px 230px;gap:14px}
+    .gallery figure{margin:0;position:relative;overflow:hidden;border-radius:15px;background:#ddd}
+    .gallery figure:first-child{grid-row:span 2}
+    .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+    .gallery figure:hover img{transform:scale(1.04)}
+    .gallery figcaption{position:absolute;inset:auto 0 0;padding:32px 16px 14px;color:white;background:linear-gradient(transparent,#101710c9);font-size:.9rem}
+    .sale{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .sale-photo{position:relative}
+    .sale-photo img{width:100%;height:520px;object-fit:cover;object-position:center 30%;border-radius:18px;box-shadow:var(--shadow)}
+    .price-card{background:var(--green);color:#fff;padding:26px 30px;border-radius:16px;position:absolute;right:-18px;bottom:24px;box-shadow:var(--shadow)}
+    .price-card small{display:block;color:#d4dfd2;text-transform:uppercase;letter-spacing:.12em}
+    .price-card strong{font:500 2.8rem Georgia,serif}
+    .sale-copy>p{color:var(--muted)}
+    .address{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;margin:25px 0;display:flex;gap:15px;align-items:flex-start}
+    .address .pin{font-size:1.45rem}
+    .address strong{display:block;font-size:1.1rem}
+    .pay-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 24px}
+    .pay{padding:17px;border:1px solid var(--line);border-radius:13px;background:var(--paper)}
+    .pay strong{display:block;margin:5px 0}
+    .pay span{color:var(--muted);font-size:.88rem}
+    .note{font-size:.86rem;color:var(--muted)}
+    .closing{background:var(--green);color:#fff;text-align:center;padding:76px 24px}
+    .closing .eyebrow{color:#d6c17d}
+    .closing h2{max-width:720px;margin:16px auto 20px}
+    .closing p{color:#d9e2d7;max-width:560px;margin:0 auto 25px}
+    .closing .btn{border-color:#fff;color:var(--green);background:#fff}
+    footer{margin-left:255px;background:#112d20;color:#d1dbcf;padding:24px clamp(24px,6vw,86px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.82rem}
+    footer a{color:#fff}
+    @media(max-width:1050px){.sidebar{width:210px;padding:24px 14px}.brand strong{font-size:1.2rem}main,footer{margin-left:210px}.hero{grid-template-columns:1fr  .8fr;gap:28px}.gallery{grid-template-rows:190px 190px}.intro{gap:35px}.sale{gap:28px}}
+    @media(max-width:760px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px 14px;display:block}.brand{margin:0;gap:10px}.brand img{width:42px;height:42px}.brand strong{font-size:1.1rem}.brand small{font-size:.58rem}.nav-label,.side-bottom{display:none}nav{display:flex;overflow-x:auto;gap:5px;padding-top:9px}nav a{white-space:nowrap;padding:8px 10px;font-size:.83rem}nav .num{display:none}main,footer{margin-left:0}section{padding:58px 22px}.hero{min-height:auto;grid-template-columns:1fr;padding-top:50px}.hero h1{font-size:3.4rem}.hero-art{max-width:480px;margin:10px auto 12px;width:90%}.hero-stamp{width:95px;height:95px;left:-20px;font-size:.68rem}.hero-stamp strong{font-size:1.15rem}.intro,.sale{grid-template-columns:1fr;gap:24px}.features{grid-template-columns:1fr}.section-head{display:block}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:240px 170px 170px}.gallery figure:first-child{grid-column:span 2;grid-row:auto}.sale-photo img{height:420px}.price-card{right:-6px}.pay-options{grid-template-columns:1fr 1fr}footer{display:block}footer span{display:block;margin-bottom:8px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
 </head>
-
 <body>
-<nav>
-<a href="index.html">🏡 Startseite</a>
-<a href="galerie.html">📷 Galerie</a>
-<a href="anfahrt.html">📍 Anfahrt</a>
-<a href="kontakt.html">📞 Kontakt</a>
-</nav>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="#start" aria-label="Hanslbauer Startseite">
+      <img src="assets/logo.jpg" alt="Hanslbauer Logo">
+      <span><strong>Hanslbauer</strong><small>Purtlhof · Röhrmoos</small></span>
+    </a>
+    <p class="nav-label">Entdecke unseren Hof</p>
+    <nav aria-label="Hauptnavigation">
+      <a class="active" href="#start"><span class="num">01</span> Willkommen</a>
+      <a href="#hof"><span class="num">02</span> Unser Hof</a>
+      <a href="#stall"><span class="num">03</span> Einblick in den Stall</a>
+      <a href="#eierverkauf"><span class="num">04</span> Eierverkauf</a>
+    </nav>
+    <div class="side-bottom"><strong>Frisch vom Hof.</strong>Mit Sorgfalt für euch und unsere Tiere.</div>
+  </aside>
 
-<header style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hof.jpg'); background-size: cover; background-position: center;">
+  <main>
+    <section class="hero" id="start">
+      <div class="hero-copy">
+        <div class="eyebrow">Direkt vom Purtlhof · Röhrmoos</div>
+        <h1>Gutes vom Hof.<br><span>Frisch auf den Tisch.</span></h1>
+        <p>Willkommen beim Hanslbauer! Bei uns gibt’s Freilandeier von unseren Hühnern, einen kleinen Einblick in unser Hofleben und ehrliche Produkte direkt vor Ort.</p>
+        <div class="actions">
+          <a class="btn primary" href="#eierverkauf">🥚 Eier kaufen <span aria-hidden="true">↗</span></a>
+          <a class="btn secondary" href="#stall">Unseren Stall entdecken</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/banner.jpg" alt="Hanslbauer Freilandeier und Hühner auf dem Hof">
+        <div class="hero-stamp"><strong>10 Eier</strong>vom Hof<br>für 3,00 €</div>
+      </div>
+    </section>
 
-<h1>🐔 Hanslbauer Purtlhof</h1>
-<p>Frische Eier aus Freilandhaltung direkt vom Hof</p>
+    <section id="hof">
+      <div class="intro">
+        <div>
+          <div class="eyebrow">Regional · Persönlich · Mit Herz</div>
+          <h2>Ein kleiner Hof mit tierisch guten Produkten.</h2>
+        </div>
+        <div class="intro-note">
+          <p>Unser Hof ist ein Ort, an dem Tiere zum Alltag gehören und man gerne genauer hinschaut. Mit unserem Eierverkauf möchten wir ein Stück Hofleben mit euch teilen.</p>
+          <p>Schön, dass ihr vorbeischaut. Ob für frische Eier oder einfach aus Interesse an unseren Tieren: Hier bekommt ihr einen kleinen Eindruck davon, wie es bei uns aussieht.</p>
+        </div>
+      </div>
+      <div class="features">
+        <article class="feature"><div class="icon">🐔</div><h3>Unsere Hühner</h3><p>Neugierige Hofbewohner, die scharren, picken und für frische Eier sorgen.</p></article>
+        <article class="feature"><div class="icon">🌿</div><h3>Hofleben</h3><p>Einblicke in den Stall und in den Alltag auf unserem kleinen Hof.</p></article>
+        <article class="feature"><div class="icon">🥚</div><h3>Direkt vor Ort</h3><p>Unsere Eier bekommt ihr unkompliziert an unserem Eierstand.</p></article>
+      </div>
+    </section>
 
-</header>
+    <section class="stall-section" id="stall">
+      <div class="section-head">
+        <div><div class="eyebrow">Ein Blick hinter die Stalltür</div><h2>Hier sind unsere Hühner zuhause.</h2></div>
+        <p>Ein paar Eindrücke aus unserem Stall: Futterplatz, Einstreu und die Plätze, an denen unsere Hühner ihren Alltag verbringen.</p>
+      </div>
+      <div class="gallery">
+        <figure><img src="assets/stall-1.jpg" alt="Blick in den Hühnerstall mit Hühnern und Einstreu" loading="lazy"><figcaption>Ein Blick in den Stall</figcaption></figure>
+        <figure><img src="assets/stall-2.jpg" alt="Hühner am Futterspender" loading="lazy"><figcaption>Gemeinsam am Futterplatz</figcaption></figure>
+        <figure><img src="assets/nester.jpg" alt="Nistplätze für die Hühner" loading="lazy"><figcaption>Die Nistplätze</figcaption></figure>
+        <figure><img src="assets/stall-3.jpg" alt="Weitere Ansicht des Hühnerstalls" loading="lazy"><figcaption>Unser Stallalltag</figcaption></figure>
+        <figure><img src="assets/stall-4.jpg" alt="Sitzstangen und Platz für die Hühner" loading="lazy"><figcaption>Platz zum Ruhen</figcaption></figure>
+      </div>
+    </section>
 
+    <section id="eierverkauf">
+      <div class="sale">
+        <div class="sale-photo">
+          <img src="assets/eierstand.jpg" alt="Der hölzerne Eierverkaufsstand am Purtlhof" loading="lazy">
+          <div class="price-card"><small>Unser aktueller Preis</small><strong>3,00 €</strong><div>für 10 Eier</div></div>
+        </div>
+        <div class="sale-copy">
+          <div class="eyebrow">Frische Eier direkt vom Hof</div>
+          <h2>Deine Eier warten schon.</h2>
+          <p>Besucht unseren kleinen Eierstand und nehmt eine Packung Freilandeier mit nach Hause. Einfach vorbeikommen, Eier mitnehmen und bezahlen.</p>
+          <div class="address">
+            <div class="pin">📍</div>
+            <div><strong>Hanslbauer – Purtlhof</strong>Purtlhof 1<br>85244 Röhrmoos<br><a href="https://www.google.com/maps/search/?api=1&query=Purtlhof+1%2C+85244+R%C3%B6hrmoos" target="_blank" rel="noopener">Route in Google Maps öffnen ↗</a></div>
+          </div>
+          <h3>So kannst du bezahlen</h3>
+          <div class="pay-options">
+            <div class="pay">💶 <strong>Barzahlung</strong><span>Passend zahlen hilft.</span></div>
+            <div class="pay">📱 <strong>PayPal</strong><span>Bequem per Smartphone.</span></div>
+          </div>
+          <p class="note">Bitte beachte: Der Verkauf erfolgt, solange Eier verfügbar sind. Der angegebene Preis gilt für 10 Eier.</p>
+        </div>
+      </div>
+    </section>
 
-<div class="container">
-
-
-<div class="box">
-<h2>🥚 Unsere Eier</h2>
-
-<p>
-Bei uns erhalten Sie frische Eier von freilaufenden Hühnern.
-</p>
-
-<p class="price">
-10 Eier = 3,00 €
-</p>
-
-<p>
-Selbstbedienung rund um die Uhr möglich.
-</p>
-
+    <section class="closing">
+      <div class="eyebrow">Wir freuen uns auf euren Besuch</div>
+      <h2>Einfach vorbeikommen und Gutes vom Hof mitnehmen.</h2>
+      <p>Danke, dass ihr regionale Produkte unterstützt und damit unseren kleinen Hof begleitet.</p>
+      <a class="btn" href="#eierverkauf">Zum Eierstand & zur Adresse ↑</a>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Hanslbauer · Purtlhof 1, 85244 Röhrmoos</span><span>Mit Sorgfalt vom Hof.</span></footer>
 </div>
-
-
-<div class="box">
-<h2>🐔 Unser Hof</h2>
-
-<p>
-    <img src="IMG_4196.jpeg" class="image" alt="Unsere Hühner">
-
-<br><br>
-
-Auf dem Hanslbauer Hof leben unsere Hühner mit viel Auslauf.
-Uns ist wichtig, dass unsere Tiere artgerecht gehalten werden und wir
-frische Produkte direkt vom Hof anbieten können.
-</p>
-
-</div>
-
-
-<div class="box">
-<h2>💳 Bezahlen</h2>
-
-<p>
-Sie können bequem per PayPal bezahlen.
-</p>
-
-<a class="button" href="#">
-Jetzt per PayPal bezahlen
-</a>
-
-<p>
-Ein QR-Code für die Zahlung vor Ort wird später ergänzt.
-</p>
-
-</div>
-
-<footer>
-Hanslbauer Purtlhof | Impressum | Datenschutz
-</footer>
-
-
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const links = [...document.querySelectorAll('nav a')];
+  const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, {rootMargin: '-30% 0px -55% 0px'});
+  sections.forEach(section => observer.observe(section));
+</script>
 </body>
 </html>
