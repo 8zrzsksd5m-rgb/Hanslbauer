@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c2b">
+  <meta name="description" content="Die Geschichte des Hanslbauer-Hofs in Purtlhof bei Röhrmoos: Seit 1912 ist der Hof mit der Familie Betz verbunden.">
+  <title>Unsere Geschichte | Hanslbauer-Hof</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#183c2b;--green2:#315b40;--cream:#f7f4eb;--paper:#fffdf7;--gold:#c8a75b;--ink:#252a24;--muted:#6d746b;--line:#e3dfd2;--shadow:0 18px 55px #1a2b1d14}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.65 'Source Sans 3',sans-serif}a{color:inherit}img{display:block;max-width:100%}
+    .sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:var(--green);color:#fff;padding:28px 20px;display:flex;flex-direction:column;z-index:10}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:34px}.brand img{width:65px;height:65px;object-fit:contain;border-radius:50%;background:#f7f4eb;padding:3px}.brand strong{font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;line-height:1.1;display:block}.brand small{font-family:'Source Sans 3',sans-serif;color:#d6dfd2;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;font-weight:400}
+    .nav-label{font-family:'Source Sans 3',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.10em;color:#bdcdbd;margin:0 12px 12px}nav{display:grid;gap:7px}nav a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;text-decoration:none;color:#e8eee5;transition:background .2s}nav a:hover,nav a.active{background:#ffffff18;color:#fff}.side-bottom{font-family:'Source Sans 3',sans-serif;margin-top:auto;border-top:1px solid #ffffff2b;padding:20px 10px 0;color:#d6dfd2;font-size:.95rem;font-weight:400;line-height:1.65}.side-bottom strong{display:block;color:#fff;font-size:1.05rem}
+    main{margin-left:255px}.hero{background:radial-gradient(ellipse at 85% 10%,#e9e1c9 0,transparent 38%),var(--paper);padding:90px clamp(24px,7vw,100px) 70px}.eyebrow{font-family:'Source Sans 3',sans-serif;color:var(--green2);font-size:.78rem;letter-spacing:.10em;text-transform:uppercase;font-weight:600}h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.12;font-weight:500}h1{font-size:clamp(3rem,6vw,5.3rem);margin:18px 0 22px;letter-spacing:-.045em}h1 span{color:var(--green2);font-style:italic}.hero p{max-width:760px;color:#5d655b;font-size:1.1rem}
+    .content{max-width:1000px;margin:0 auto;padding:65px clamp(24px,7vw,100px)}h2{font-size:clamp(2rem,4vw,3rem);margin:12px 0 22px}h3{font-size:1.55rem;margin:0 0 12px}.intro-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;margin:28px 0;box-shadow:var(--shadow)}
+    .timeline-heading{margin:55px 0 10px}.timeline-intro{color:var(--muted);margin:0 0 24px}
+    .dual-timeline{position:relative;margin:30px 0 12px}
+    .lane-headings,.timeline-row{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:30px}
+    .lane-headings{margin-bottom:14px}.lane-heading{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;font-weight:500;margin:0;padding:0 0 10px 22px;border-bottom:3px solid var(--green2)}.lane-heading.family{border-color:var(--gold)}
+    .timeline-row{align-items:stretch;margin-bottom:14px}.timeline-cell{position:relative;min-width:0;padding-left:22px}
+    .timeline-event{position:relative;height:100%;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 6px 18px #1a2b1d08}
+    .timeline-event h3{font-size:1.2rem;margin:0 0 7px}.timeline-event p{margin:0}.year{font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:600;color:var(--green2);letter-spacing:0;margin-bottom:4px}.timeline-cell.family .year{color:#947137}
+    .merge-graphic{display:block;width:100%;height:64px;overflow:visible;margin:0}
+    .shared-timeline{position:relative;border-left:3px solid var(--green2);margin:-1px 0 34px 29%;padding:0 0 0 28px}
+    .shared-event{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 17px;box-shadow:0 6px 18px #1a2b1d08}
+    .shared-event:before{content:"";position:absolute;left:-36px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--green2);border:3px solid var(--cream)}
+    .shared-event h3{font-size:1.25rem;margin:0 0 8px}.shared-event p{margin:0}
+    .note{font-family:'Source Sans 3',sans-serif;font-size:.95rem;font-weight:400;line-height:1.65;color:var(--muted)}.closing{background:var(--green);color:#fff;text-align:center;padding:65px 24px}.closing h2{max-width:720px;margin:16px auto 20px}.closing p{color:#d9e2d7;max-width:620px;margin:0 auto 25px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:999px;text-decoration:none;font-weight:750;border:1px solid var(--green);background:#fff;color:var(--green)}footer{font-family:'Source Sans 3',sans-serif;margin-left:255px;background:#112d20;color:#d1dbcf;padding:24px clamp(24px,6vw,86px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.95rem;font-weight:400;line-height:1.65}footer a{color:#fff}
+    @media(max-width:1050px){.sidebar{width:210px;padding:24px 14px}.brand strong{font-size:1.2rem}main,footer{margin-left:210px}.lane-headings,.timeline-row{column-gap:20px}.shared-timeline{margin-left:24%}}
+    @media(max-width:760px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px 14px;display:block}.brand{margin:0;gap:10px}.brand img{width:42px;height:42px}.brand strong{font-size:1.1rem}.brand small{font-size:.58rem}.nav-label,.side-bottom{display:none}nav{display:flex;overflow-x:auto;gap:5px;padding-top:9px}nav a{white-space:nowrap;padding:8px 10px;font-size:.83rem}main,footer{margin-left:0}.hero{padding:55px 22px 45px}.content{padding:42px 22px}.intro-card{padding:22px}.lane-headings,.timeline-row{column-gap:12px}.lane-heading{font-size:1.05rem;padding-left:12px}.timeline-cell{padding-left:12px}.timeline-event{padding:12px}.timeline-event h3{font-size:1.05rem}.timeline-event p{font-size:.92rem}.merge-graphic{height:46px}.shared-timeline{margin-left:12%;padding-left:24px}.shared-event:before{left:-32px}footer{display:block}footer span{display:block;margin-bottom:8px}}
+    @media(max-width:390px){.lane-headings,.timeline-row{grid-template-columns:minmax(0,1fr);row-gap:10px}.lane-heading.family{margin-top:3px}.timeline-cell{padding-left:15px}.timeline-event{padding:15px}.merge-graphic{height:30px}.shared-timeline{margin-left:4%}}
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="index.html#start" aria-label="Hanslbauer Startseite">
+      <img src="logo.jpg" alt="Hanslbauer Logo" onerror="this.style.display='none'">
+      <span><strong>Hanslbauer</strong><small>Purtlhof · Röhrmoos</small></span>
+    </a>
+    <p class="nav-label">Entdecke unseren Hof</p>
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html#start">Willkommen</a>
+      <a href="index.html#hof">Unser Hof</a>
+      <a class="active" href="geschichte.html" aria-current="page">Unsere Geschichte</a>
+      <a href="index.html#stall">Einblick in den Stall</a>
+      <a href="index.html#eierverkauf">Eierverkauf</a>
+    </nav>
+    <div class="side-bottom"><strong>Frisch vom Hof.</strong>Mit Sorgfalt für euch und unsere Tiere.</div>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Verwurzelt in der Vergangenheit</div>
+      <h1>Unsere <span>Geschichte.</span></h1>
+      <p>Seit 1912 ist der Hanslbauer-Hof mit der Familie Betz verbunden. Wir blicken auf diese Tradition zurück und erzählen, wie unser Hof heute weiterlebt.</p>
+    </header>
+
+    <article class="content">
+      <div class="intro-card">
+        <div class="eyebrow">Ein Hof und seine Familie</div>
+        <h2>Der Beginn unserer Hofgeschichte</h2>
+        <p>Im Jahr 1912 übernimmt die Familie Betz den Hanslbauer-Hof in Purtlhof. Damit beginnt ein neues Kapitel in der Geschichte des Hofes, der seitdem mit unserer Familie verbunden ist.</p>
+      </div>
+
+      <div class="eyebrow">Ein Blick zurück</div>
+      <h2 class="timeline-heading">Von 1912 bis heute</h2>
+      <p class="timeline-intro">Ein Hof verändert sich über die Jahre. Was bleibt, ist die Verbundenheit mit dem Ort und dem Leben auf dem Land.</p>
+
+      <div class="shared-timeline" aria-label="Geschichte des Hanslbauer-Hofs ab 1912">
+        <article class="shared-event">
+          <div class="year">1912</div>
+          <h3>Übernahme durch die Familie Betz</h3>
+          <p>Im Jahr 1912 übernimmt die Familie Betz den Hanslbauer-Hof in Purtlhof. Damit beginnt das Kapitel der Hofgeschichte, das bis heute eng mit unserer Familie verbunden ist.</p>
+        </article>
+        <article class="shared-event">
+          <div class="year">2010</div>
+          <h3>Ende der Stiermast</h3>
+          <p>Im Jahr 2010 beenden wir die Stiermast. Von da an konzentriert sich die Landwirtschaft auf dem Hof auf den Ackerbau.</p>
+        </article>
+        <article class="shared-event">
+          <div class="year">2020</div>
+          <h3>Die ersten Hühner kehren zurück</h3>
+          <p>2020 holen wir die ersten Hühner auf den Hof. Damit beginnt ein neues Kapitel, aus dem sich unser heutiger Eierverkauf entwickelt.</p>
+        </article>
+        <article class="shared-event">
+          <div class="year">2025</div>
+          <h3>Ende des Ackerbaus</h3>
+          <p>Im Jahr 2025 beenden wir auch den Ackerbau. Heute stehen unsere Hühner, die Freilandeier und das Leben mit unseren weiteren Tieren im Mittelpunkt.</p>
+        </article>
+        <article class="shared-event">
+          <div class="year">Heute</div>
+          <h3>Hanslbauer – Purtlhof</h3>
+          <p>Mit unseren Hühnern und dem Eierverkauf führen wir das Hofleben auf unsere eigene Weise weiter. So bleibt der Hanslbauer-Hof ein Ort, an dem Tiere, Natur und die Verbundenheit mit dem Land dazugehören.</p>
+        </article>
+      </div>
+
+      <div class="intro-card">
+        <div class="eyebrow">Tradition, die weiterlebt</div>
+        <h2>Unser Hof heute</h2>
+        <p>Auf einem Hof verändert sich über die Jahre vieles. Geblieben ist die Verbundenheit zu den Tieren, zur Natur und zum Leben auf dem Land.</p>
+        <p>Für uns ist der Hanslbauer-Hof mehr als ein landwirtschaftliches Anwesen. Er ist unser Zuhause, ein Ort mit Geschichte und ein Platz, an dem die Tiere einfach dazugehören.</p>
+        <p><strong>Hanslbauer-Hof – mit Geschichte, Herz und einem Platz für unsere Tiere.</strong></p>
+      </div>
+      <p class="note">Die Zeitachse beginnt bewusst 1912 mit der Übernahme durch die Familie Betz. Die späteren Stationen zeigen die Entwicklung der Landwirtschaft auf unserem Hof bis heute.</p>
+    </article>
+
+    <section class="closing">
+      <div class="eyebrow">Schön, dass ihr da seid</div>
+      <h2>Entdeckt unseren Hof von heute.</h2>
+      <p>Erfahrt mehr über unsere Tiere und unseren Eierverkauf direkt am Purtlhof.</p>
+      <a class="btn" href="index.html#hof">Zurück zu unserem Hof</a>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Hanslbauer · Purtlhof, 85244 Röhrmoos</span><span><a href="index.html">Zur Startseite</a></span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
