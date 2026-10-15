@@ -25,6 +25,11 @@
     nav .num{display:none}
     .side-bottom{margin-top:auto;border-top:1px solid #ffffff2b;padding:20px 10px 0;color:#d6dfd2;font-size:.95rem}
     .side-bottom strong{display:block;color:#fff;font-size:1.05rem}
+	.instagram-link {display: flex;align-items: center;gap: 10px;width: fit-content;padding: 12px 10px;margin-top: auto;color: #fff;text-decoration: none;border-radius: 12px;transition: background .2s;}
+	.instagram-link:hover {background: #ffffff18;}
+	.instagram-link svg {flex-shrink: 0;}
+	.instagram-link span {font-size: .92rem;font-weight: 600;}
+	.side-bottom {margin-top: 0;}
     main{margin-left:255px}
     section{padding:82px clamp(24px,6vw,86px)}
     .eyebrow{color:var(--green2);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
@@ -89,7 +94,7 @@
     footer{margin-left:255px;background:#112d20;color:#d1dbcf;padding:24px clamp(24px,6vw,86px);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.82rem}
     footer a{color:#fff}
     @media(max-width:1050px){.sidebar{width:210px;padding:24px 14px}.brand strong{font-size:1.2rem}main,footer{margin-left:210px}.hero{grid-template-columns:1fr .8fr;gap:28px}.gallery{grid-template-rows:190px 190px}.intro{gap:35px}.sale{gap:28px}}
-    @media(max-width:760px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px 14px;display:block}.brand{margin:0;gap:10px}.brand img{width:60px;height:60px}.brand strong{font-size:1.1rem}.brand small{font-size:.58rem}.nav-label,.side-bottom{display:none}nav{display:flex;overflow-x:auto;gap:5px;padding-top:9px}nav a{white-space:nowrap;padding:8px 10px;font-size:.83rem}nav .num{display:none}main,footer{margin-left:0}section{padding:58px 22px}.hero{min-height:auto;grid-template-columns:1fr;padding-top:50px}.hero h1{font-size:3.4rem}.hero-price{min-height:180px}.hero-stamp{width:145px;height:145px;font-size:.82rem}.hero-stamp strong{font-size:1.65rem}.intro,.sale{grid-template-columns:1fr;gap:24px}.features{grid-template-columns:1fr}.section-head{display:block}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:240px 170px 170px}.gallery figure:first-child{grid-column:span 2;grid-row:auto}.sale-photo img{height:420px}.price-card{right:-6px}.pay-options{grid-template-columns:1fr 1fr}footer{display:block}footer span{display:block;margin-bottom:8px}}
+    @media(max-width:760px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px 14px;display:block}.brand{margin:0;gap:10px}.brand img{width:60px;height:60px}.brand strong{font-size:1.1rem}.brand small{font-size:.58rem}.nav-label,.side-bottom{display:none}nav{display:flex;overflow-x:auto;gap:5px;padding-top:9px}nav a{white-space:nowrap;padding:8px 10px;font-size:.83rem}nav .num{display:none}main,footer{margin-left:0}section{padding:58px 22px}.hero{min-height:auto;grid-template-columns:1fr;padding-top:50px}.hero h1{font-size:3.4rem}.hero-price{min-height:180px}.hero-stamp{width:145px;height:145px;font-size:.82rem}.hero-stamp strong{font-size:1.65rem}.intro,.sale{grid-template-columns:1fr;gap:24px}.features{grid-template-columns:1fr}.section-head{display:block}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:240px 170px 170px}.gallery figure:first-child{grid-column:span 2;grid-row:auto}.sale-photo img{height:420px}.price-card{right:-6px}.pay-options{grid-template-columns:1fr 1fr}footer{display:block}footer span{display:block;margin-bottom:8px}.instagram-link {margin-top: 8px;padding: 6px 8px;gap: 8px;}.instagram-link svg {width: 25px;height: 25px;}.instagram-link span {font-size: .85rem;}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 	  #start {scroll-margin-top: 0;}
   </style>
@@ -109,6 +114,27 @@
       <a href="#stall"><span class="num">04</span> Einblick in den Stall</a>
       <a href="#eierverkauf"><span class="num">05</span> Eierverkauf</a>
     </nav>
+	  <a class="instagram-link"
+   href="https://www.instagram.com/hanslbauer.eier?vrfl=ODA4OTlxcTY4djY3&utm_source=qr"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Hanslbauer auf Instagram besuchen"
+   title="Besucht uns auf Instagram">
+  <svg viewBox="0 0 24 24"
+       width="28" height="28"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="1.8"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
+  </svg>
+  <span>Folgt uns auf Instagram</span>
+</a>
+
     <div class="side-bottom"><strong>Frisch vom Hof.</strong>Mit Sorgfalt für euch und unsere Tiere.</div>
   </aside>
 
