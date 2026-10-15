@@ -1,0 +1,404 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c2b">
+  <meta name="description" content="Vorbestellung von Freilandeiern beim Hanslbauer in Purtlhof.">
+  <title>Vorbestellung | Hanslbauer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#183c2b;
+      --green2:#315b40;
+      --cream:#f7f4eb;
+      --paper:#fffdf7;
+      --gold:#c8a75b;
+      --ink:#252a24;
+      --muted:#6d746b;
+      --line:#e3dfd2;
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font:17px/1.65 'Source Sans 3',sans-serif;
+    }
+
+    .sidebar {
+      position:fixed;
+      inset:0 auto 0 0;
+      width:255px;
+      background:var(--green);
+      color:white;
+      padding:28px 20px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color:white;
+      text-decoration:none;
+      margin-bottom:35px;
+    }
+
+    .brand img {
+      width:76px;
+      height:76px;
+      object-fit:contain;
+    }
+
+    .brand strong {
+      display:block;
+      font:500 1.45rem/1.1 Georgia,serif;
+    }
+
+    .brand small {
+      color:#d6dfd2;
+      font-size:.68rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    nav { display:grid; gap:7px; }
+
+    nav a {
+      padding:12px;
+      border-radius:12px;
+      color:#e8eee5;
+      text-decoration:none;
+    }
+
+    nav a:hover, nav a.active {
+      background:#ffffff18;
+      color:white;
+    }
+
+    .side-bottom {
+      margin-top:auto;
+      border-top:1px solid #ffffff2b;
+      padding:20px 10px 0;
+      color:#d6dfd2;
+      font-size:.84rem;
+    }
+
+    .side-bottom strong {
+      display:block;
+      color:white;
+      font-size:1.05rem;
+    }
+
+    main {
+      margin-left:255px;
+      min-height:100vh;
+    }
+
+    .page {
+      max-width:900px;
+      margin:auto;
+      padding:65px clamp(22px,6vw,75px);
+    }
+
+    .eyebrow {
+      color:var(--green2);
+      font-size:.74rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+
+    h1, h2 {
+      font-family:Georgia,serif;
+      font-weight:500;
+      line-height:1.15;
+    }
+
+    h1 {
+      font-size:clamp(2.5rem,5vw,4rem);
+      margin:12px 0;
+    }
+
+    .intro {
+      color:var(--muted);
+      margin-bottom:30px;
+    }
+
+    .form-card {
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:clamp(20px,4vw,36px);
+    }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+      min-width:0;
+    }
+
+    .full { grid-column:1/-1; }
+
+    label { font-weight:600; }
+
+    .hint {
+      color:var(--muted);
+      font-size:.9rem;
+      margin:0;
+    }
+
+    input, textarea {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:white;
+      color:var(--ink);
+      font:inherit;
+    }
+
+    input:focus, textarea:focus {
+      outline:2px solid var(--green2);
+      outline-offset:2px;
+    }
+
+    textarea {
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .contact-note {
+      color:var(--muted);
+      font-size:.92rem;
+      margin:0;
+    }
+
+    .error {
+      display:none;
+      color:#9b2525;
+      font-size:.92rem;
+      margin:0;
+    }
+
+    .btn {
+      border:0;
+      border-radius:999px;
+      padding:14px 24px;
+      background:var(--green);
+      color:white;
+      font:700 1rem 'Source Sans 3',sans-serif;
+      cursor:pointer;
+    }
+
+    .btn:hover { background:var(--green2); }
+
+    .privacy {
+      color:var(--muted);
+      font-size:.82rem;
+      margin-top:18px;
+    }
+
+    .back {
+      display:inline-block;
+      margin-top:25px;
+      color:var(--green2);
+    }
+
+    @media(max-width:760px) {
+      .sidebar {
+        position:relative;
+        width:100%;
+        padding:12px 14px;
+      }
+
+      .brand { margin-bottom:12px; }
+      .brand img { width:55px; height:55px; }
+      .brand strong { font-size:1.1rem; }
+      .brand small { font-size:.58rem; }
+      .side-bottom { display:none; }
+
+      nav {
+        display:flex;
+        overflow-x:auto;
+        gap:5px;
+      }
+
+      nav a {
+        white-space:nowrap;
+        padding:8px 10px;
+        font-size:.88rem;
+      }
+
+      main { margin-left:0; }
+      .page { padding:38px 20px; }
+      .form-grid { grid-template-columns:1fr; }
+      .full { grid-column:auto; }
+      .btn { width:100%; }
+    }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <a class="brand" href="index.html#start">
+    <img src="logo-weiss.png" alt="Hanslbauer Logo">
+    <span>
+      <strong>Hanslbauer</strong>
+      <small>Purtlhof · Röhrmoos</small>
+    </span>
+  </a>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html#start">Willkommen</a>
+    <a href="index.html#hof">Unser Hof</a>
+    <a href="geschichte.html">Unsere Geschichte</a>
+    <a href="index.html#stall">Einblick in den Stall</a>
+    <a href="index.html#eierverkauf">Eierverkauf</a>
+    <a class="active" href="vorbestellung.html">Vorbestellung</a>
+  </nav>
+
+  <div class="side-bottom">
+    <strong>Frisch vom Hof.</strong>
+    Mit Sorgfalt für euch und unsere Tiere.
+  </div>
+</aside>
+
+<main>
+  <div class="page">
+    <div class="eyebrow">Frisch vom Hof · Einfach vorbestellen</div>
+    <h1>Deine Vorbestellung</h1>
+    <p class="intro">
+      Du möchtest Eier für einen bestimmten Tag reservieren?
+      Fülle einfach das Formular aus. Wir melden uns bei dir,
+      falls wir noch Rückfragen haben.
+    </p>
+
+    <form class="form-card"
+          action="https://formspree.io/f/moejplaj"
+          method="POST"
+          id="order-form">
+
+      <input type="hidden" name="_subject"
+             value="Neue Eier-Vorbestellung – Hanslbauer">
+
+      <div class="form-grid">
+        <div class="field full">
+          <label for="name">Vor- und Nachname *</label>
+          <input id="name" name="Name" autocomplete="name"
+                 required maxlength="100">
+        </div>
+
+        <div class="field">
+          <label for="phone">Telefonnummer</label>
+          <input id="phone" name="Telefonnummer"
+                 type="tel" autocomplete="tel"
+                 maxlength="40">
+        </div>
+
+        <div class="field">
+          <label for="email">E-Mail-Adresse</label>
+          <input id="email" name="E-Mail"
+                 type="email" autocomplete="email"
+                 maxlength="254">
+        </div>
+
+        <div class="field full">
+          <p class="contact-note">
+            Bitte gib mindestens eine Telefonnummer oder
+            E-Mail-Adresse an, damit wir dich erreichen können.
+          </p>
+          <p class="error" id="contact-error" role="alert">
+            Bitte gib eine Telefonnummer oder eine gültige
+            E-Mail-Adresse an.
+          </p>
+        </div>
+
+        <div class="field full">
+          <label for="order">Was möchtest du bestellen? *</label>
+          <textarea id="order" name="Bestellung"
+                    placeholder="Zum Beispiel: 3 Packungen à 10 Eier"
+                    required maxlength="2000"></textarea>
+        </div>
+
+        <div class="field full">
+          <label for="date">Gewünschter Abholtermin *</label>
+          <input id="date" name="Gewünschter Abholtermin"
+                 type="date" required>
+        </div>
+
+        <div class="field full">
+          <label for="notes">Weitere Hinweise (optional)</label>
+          <textarea id="notes" name="Weitere Hinweise"
+                    placeholder="Zusätzliche Wünsche oder Informationen"
+                    maxlength="2000"></textarea>
+        </div>
+
+        <div class="field full">
+          <button class="btn" type="submit">
+            Vorbestellung absenden
+          </button>
+          <p class="privacy">
+            Deine Angaben werden zur Bearbeitung deiner
+            Vorbestellung übermittelt. Die Vorbestellung gilt
+            erst nach unserer Bestätigung als angenommen.
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <a class="back" href="index.html#start">
+      ← Zurück zur Startseite
+    </a>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('order-form');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+  const error = document.getElementById('contact-error');
+
+  function validateContact() {
+    const hasPhone = phone.value.trim().length > 0;
+    const hasEmail = email.value.trim().length > 0;
+    const valid = hasPhone || (hasEmail && email.validity.valid);
+
+    error.style.display = valid ? 'none' : 'block';
+    phone.setCustomValidity(valid ? '' :
+      'Bitte gib eine Telefonnummer oder eine gültige E-Mail-Adresse an.');
+    email.setCustomValidity(valid ? '' :
+      'Bitte gib eine Telefonnummer oder eine gültige E-Mail-Adresse an.');
+
+    return valid;
+  }
+
+  phone.addEventListener('input', validateContact);
+  email.addEventListener('input', validateContact);
+
+  form.addEventListener('submit', function(event) {
+    if (!validateContact()) {
+      event.preventDefault();
+      if (phone.value.trim() === '') {
+        email.focus();
+      } else {
+        phone.focus();
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
