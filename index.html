@@ -95,7 +95,7 @@
   </style>
 </head>
 <body>
-<div class="layout" id="start">
+<div class="layout">
   <aside class="sidebar">
     <a class="brand" href="#" aria-label="Hanslbauer Startseite">
       <img src="logo-weiss.png" alt="Hanslbauer Logo">
@@ -199,14 +199,17 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   const links = [...document.querySelectorAll('nav a')];
   const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
-      }
-    });
-  }, {rootMargin: '-30% 0px -55% 0px'});
-  sections.forEach(section => observer.observe(section));
+  
+const observer = new IntersectionObserver(() => {
+  const visibleSections = sections
+    .map(section => ({section,distance: Math.abs(section.getBoundingClientRect().top - window.innerHeight * 0.3)}))
+    .filter(item => item.section.getBoundingClientRect().bottom > 0);
+	const current = visibleSections
+    .filter(item => item.section.getBoundingClientRect().top < window.innerHeight * 0.7)
+    .sort((a, b) => a.distance - b.distance)[0];
+	if (current) {links.forEach(link => {link.classList.toggle('active',link.getAttribute('href') === '#' + current.section.id);});}
+}, { rootMargin: '-30% 0px -55% 0px' });
+sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
