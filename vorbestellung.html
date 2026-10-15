@@ -298,7 +298,7 @@
         <div class="field full">
           <label for="name">Vor- und Nachname *</label>
           <input id="name" name="Name" autocomplete="name"
-                 required maxlength="100">
+                 required minlength="4" required maxlength="100">
         </div>
 
         <div class="field">
@@ -365,11 +365,13 @@
   </div>
 </main>
 
+
 <script>
   const form = document.getElementById('order-form');
   const phone = document.getElementById('phone');
   const email = document.getElementById('email');
   const error = document.getElementById('contact-error');
+  const name = document.getElementById('name');
 
   function validateContact() {
     const hasPhone = phone.value.trim().length > 0;
@@ -389,14 +391,31 @@
   email.addEventListener('input', validateContact);
 
   form.addEventListener('submit', function(event) {
+    if (name.value.trim().length < 3) {
+      event.preventDefault();
+      name.setCustomValidity(
+        'Bitte gib mindestens 3 Zeichen für deinen Namen ein.'
+      );
+      name.reportValidity();
+      name.focus();
+      return;
+    }
+
+    name.setCustomValidity('');
+
     if (!validateContact()) {
       event.preventDefault();
+
       if (phone.value.trim() === '') {
         email.focus();
       } else {
         phone.focus();
       }
     }
+  });
+
+  name.addEventListener('input', function() {
+    this.setCustomValidity('');
   });
 </script>
 
