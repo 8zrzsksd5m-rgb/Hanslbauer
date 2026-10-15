@@ -391,7 +391,7 @@
   email.addEventListener('input', validateContact);
 
   form.addEventListener('submit', function(event) {
-    if (name.value.trim().length < 3) {
+    if (name.value.trim().length < 4) {
       event.preventDefault();
       name.setCustomValidity(
         'Bitte gib mindestens 3 Zeichen für deinen Namen ein.'
