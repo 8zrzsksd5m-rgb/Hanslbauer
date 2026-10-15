@@ -160,7 +160,7 @@
       margin:0;
     }
 
-    input, textarea {
+    input, textarea , select {
       width:100%;
       padding:13px 14px;
       border:1px solid var(--line);
@@ -170,7 +170,7 @@
       font:inherit;
     }
 
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       outline:2px solid var(--green2);
       outline-offset:2px;
     }
@@ -284,6 +284,40 @@
   color: #9b2525;
   margin-top: 15px;
 }
+    
+.quantity-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quantity-row select {
+  width: 110px;
+  flex: 0 0 110px;
+}
+
+.quantity-row span {
+  font-weight: 600;
+}
+
+.order-summary {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--cream);
+  border-radius: 10px;
+}
+
+.order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.order-summary-row strong {
+  text-align: right;
+}
+
 
   </style>
 </head>
@@ -316,7 +350,7 @@
 <main>
   <div class="page">
     <div class="eyebrow">Frisch vom Hof · Einfach vorbestellen</div>
-    <h1>Vielen Dank!</h1>
+    <h1>Vorbestellen & abholen</h1>
 <p class="intro">
   Deine Vorbestellung beim Hanslbauer.
 </p>
@@ -361,12 +395,54 @@
           </p>
         </div>
 
-        <div class="field full">
-          <label for="order">Was möchtest du bestellen? *</label>
-          <textarea id="order" name="Bestellung"
-                    placeholder="Zum Beispiel: 3 Packungen à 10 Eier"
-                    required maxlength="2000"></textarea>
-        </div>
+        
+<div class="field full">
+  <label for="quantity">Anzahl der Packungen</label>
+
+  <div class="quantity-row">
+    <select id="quantity" name="Anzahl Packungen" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+    </select>
+
+    <span>× 10 Eier</span>
+  </div>
+
+  <div class="order-summary">
+    <div class="order-summary-row">
+      <span>Gesamtmenge</span>
+      <strong id="total-eggs">10 Eier</strong>
+    </div>
+    <div class="order-summary-row">
+      <span>Gesamtpreis</span>
+      <strong id="total-price">3,00 €</strong>
+    </div>
+  </div>
+
+  <input type="hidden" id="total-eggs-input" name="Gesamtmenge" value="10 Eier">
+  <input type="hidden" id="total-price-input" name="Gesamtpreis" value="3,00 €">
+
+  <small>Eine Packung enthält 10 Eier und kostet 3,00 €.</small>
+</div>
+
 
         <div class="field full">
           <label for="date">Gewünschter Abholtermin *</label>
@@ -418,6 +494,27 @@
 
 <script>
   const form = document.getElementById('order-form');
+  const quantity = document.getElementById('quantity');
+  const totalEggs = document.getElementById('total-eggs');
+  const totalPrice = document.getElementById('total-price');
+  const totalEggsInput = document.getElementById('total-eggs-input');
+  const totalPriceInput = document.getElementById('total-price-input');
+  function updateOrderSummary() {
+  const packs = Number(quantity.value);
+  const eggs = packs * 10;
+  const price = packs * 3;
+  const formattedPrice = price.toLocaleString('de-DE', {minimumFractionDigits: 2,maximumFractionDigits: 2}) + ' €';
+
+  totalEggs.textContent = eggs + ' Eier';
+  totalPrice.textContent = formattedPrice;
+
+  totalEggsInput.value = eggs + ' Eier';
+  totalPriceInput.value = formattedPrice;
+}
+
+quantity.addEventListener('change', updateOrderSummary);
+updateOrderSummary();
+
   const phone = document.getElementById('phone');
   const email = document.getElementById('email');
   const error = document.getElementById('contact-error');
