@@ -333,7 +333,7 @@
         <div class="field full">
           <label for="name">Vor- und Nachname *</label>
           <input id="name" name="Name" autocomplete="name"
-                 required minlength="4" required maxlength="100">
+                 required minlength="4" maxlength="100">
         </div>
 
         <div class="field">
@@ -452,9 +452,9 @@
   form.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    if (name.value.trim().length < 3) {
+    if (name.value.trim().length < 4) {
       name.setCustomValidity(
-        'Bitte gib mindestens 3 Zeichen für deinen Namen ein.'
+        'Bitte gib mindestens 4 Zeichen für deinen Namen ein.'
       );
       name.reportValidity();
       name.focus();
